@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --bg: #f7f5ed;
+  --ivory: #f7f5ed;
+  --forest: #173d32;
+  --botanical: #39785b;
+  --sage: #dce8d8;
+  --terracotta: #c77b59;
+  --charcoal: #202923;
+  --surface: #ffffff;
+  --surface-solid: #ffffff;
+  --ink: #202923;
+  --muted: #4a5c54;
+  --line: #d5dfd2;
+  --accent: #173d32;
+  --shadow: 0 12px 28px -22px rgba(32, 41, 35, 0.45);
+  --ring: rgba(23, 61, 50, 0.35);
+  --setosa: #c77b59;
+  --versicolor: #39785b;
+  --virginica: #173d32;
+}
+
+.dark {
+  color-scheme: dark;
+  --bg: #141c19;
+  --ivory: #f7f5ed;
+  --forest: #173d32;
+  --botanical: #7dab8a;
+  --sage: #24352e;
+  --terracotta: #d39274;
+  --charcoal: #202923;
+  --surface: #1b2622;
+  --surface-solid: #1b2622;
+  --ink: #f7f5ed;
+  --muted: #c5d1c8;
+  --line: #31443c;
+  --accent: #dce8d8;
+  --shadow: 0 16px 32px -24px rgba(0, 0, 0, 0.7);
+  --ring: rgba(220, 232, 216, 0.4);
+  --setosa: #e0a08a;
+  --versicolor: #8fbf9f;
+  --virginica: #d7c4a3;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Outfit, "Segoe UI", sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--botanical) 28%, transparent);
+}
+
+input[type="range"] {
+  accent-color: var(--forest);
+}
+
+.dark input[type="range"] {
+  accent-color: var(--botanical);
+}
+
+@layer components {
+  .panel {
+    @apply rounded-xl border border-line bg-[var(--surface)] shadow-card;
+  }
+
+  .sage-panel {
+    @apply rounded-xl border border-line bg-sage;
+  }
+
+  .field {
+    @apply w-full rounded-md border border-line bg-paper px-3 py-2 text-sm text-ink outline-none transition focus-visible:ring-2 focus-visible:ring-[var(--ring)];
+  }
+
+  .quiet-button {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-line bg-paper px-3 py-2 text-sm font-medium text-ink transition hover:border-botanical focus-visible:ring-2 focus-visible:ring-[var(--ring)];
+  }
+
+  .primary-button {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-forest px-3 py-2 text-sm font-semibold text-ivory transition hover:bg-botanical focus-visible:ring-2 focus-visible:ring-[var(--ring)] disabled:cursor-not-allowed disabled:opacity-60;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

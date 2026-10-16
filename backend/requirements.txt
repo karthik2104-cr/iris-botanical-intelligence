@@ -1,0 +1,2 @@
+# Installs the same project environment as the repository root.
+-r ../requirements.txt

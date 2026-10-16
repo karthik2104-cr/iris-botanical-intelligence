@@ -1,0 +1,1798 @@
+{
+  "project": "Iris Flower Classification",
+  "seed": 42,
+  "test_size": 0.2,
+  "cv_folds": 5,
+  "trained_at": "2026-10-16T18:21:25.297321+00:00",
+  "versions": {
+    "python": "3.11.9",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "scikit_learn": "1.9.1"
+  },
+  "features": [
+    {
+      "key": "sepal_length_cm",
+      "column": "sepal length (cm)",
+      "label": "Sepal length",
+      "unit": "cm",
+      "description": "Length of the sepal, the outer leaf-like part of the flower, measured in centimeters."
+    },
+    {
+      "key": "sepal_width_cm",
+      "column": "sepal width (cm)",
+      "label": "Sepal width",
+      "unit": "cm",
+      "description": "Width of the sepal at its widest point, measured in centimeters."
+    },
+    {
+      "key": "petal_length_cm",
+      "column": "petal length (cm)",
+      "label": "Petal length",
+      "unit": "cm",
+      "description": "Length of the petal, the inner colored part of the flower, measured in centimeters."
+    },
+    {
+      "key": "petal_width_cm",
+      "column": "petal width (cm)",
+      "label": "Petal width",
+      "unit": "cm",
+      "description": "Width of the petal at its widest point, measured in centimeters."
+    }
+  ],
+  "class_names": [
+    "Iris setosa",
+    "Iris versicolor",
+    "Iris virginica"
+  ],
+  "dataset": {
+    "rows": 150,
+    "columns": 6,
+    "feature_count": 4,
+    "class_count": 3,
+    "column_names": [
+      "sepal length (cm)",
+      "sepal width (cm)",
+      "petal length (cm)",
+      "petal width (cm)",
+      "target",
+      "species"
+    ],
+    "source": "sklearn.datasets.load_iris",
+    "missing_values": {
+      "sepal length (cm)": 0,
+      "sepal width (cm)": 0,
+      "petal length (cm)": 0,
+      "petal width (cm)": 0,
+      "target": 0,
+      "species": 0
+    },
+    "missing_total": 0,
+    "duplicate_records": 1,
+    "duplicate_note": "1 duplicate measurement-and-species row was found. It is retained because it belongs to the canonical Iris table. An identical row can land in both splits, which can make the test score slightly optimistic.",
+    "descriptive_statistics": [
+      {
+        "feature": "Sepal length",
+        "column": "sepal length (cm)",
+        "count": 150,
+        "mean": 5.843333333333334,
+        "std": 0.828066127977863,
+        "min": 4.3,
+        "q1": 5.1,
+        "median": 5.8,
+        "q3": 6.4,
+        "max": 7.9
+      },
+      {
+        "feature": "Sepal width",
+        "column": "sepal width (cm)",
+        "count": 150,
+        "mean": 3.0573333333333337,
+        "std": 0.4358662849366982,
+        "min": 2.0,
+        "q1": 2.8,
+        "median": 3.0,
+        "q3": 3.3,
+        "max": 4.4
+      },
+      {
+        "feature": "Petal length",
+        "column": "petal length (cm)",
+        "count": 150,
+        "mean": 3.7580000000000005,
+        "std": 1.7652982332594662,
+        "min": 1.0,
+        "q1": 1.6,
+        "median": 4.35,
+        "q3": 5.1,
+        "max": 6.9
+      },
+      {
+        "feature": "Petal width",
+        "column": "petal width (cm)",
+        "count": 150,
+        "mean": 1.1993333333333336,
+        "std": 0.7622376689603465,
+        "min": 0.1,
+        "q1": 0.3,
+        "median": 1.3,
+        "q3": 1.8,
+        "max": 2.5
+      }
+    ],
+    "class_distribution": [
+      {
+        "species": "Iris setosa",
+        "count": 50,
+        "proportion": 0.3333333333333333
+      },
+      {
+        "species": "Iris versicolor",
+        "count": 50,
+        "proportion": 0.3333333333333333
+      },
+      {
+        "species": "Iris virginica",
+        "count": 50,
+        "proportion": 0.3333333333333333
+      }
+    ],
+    "correlation": {
+      "features": [
+        "Sepal length",
+        "Sepal width",
+        "Petal length",
+        "Petal width"
+      ],
+      "columns": [
+        "sepal length (cm)",
+        "sepal width (cm)",
+        "petal length (cm)",
+        "petal width (cm)"
+      ],
+      "matrix": [
+        [
+          1.0,
+          -0.1175697841,
+          0.8717537759,
+          0.8179411263
+        ],
+        [
+          -0.1175697841,
+          1.0,
+          -0.4284401043,
+          -0.3661259325
+        ],
+        [
+          0.8717537759,
+          -0.4284401043,
+          1.0,
+          0.9628654314
+        ],
+        [
+          0.8179411263,
+          -0.3661259325,
+          0.9628654314,
+          1.0
+        ]
+      ]
+    },
+    "feature_profiles": [
+      {
+        "feature": "Petal length",
+        "column": "petal length (cm)",
+        "key": "petal_length_cm",
+        "description": "Length of the petal, the inner colored part of the flower, measured in centimeters.",
+        "min": 1.0,
+        "max": 6.9,
+        "mean": 3.7580000000000005,
+        "std": 1.7652982332594662,
+        "class_means": {
+          "Iris setosa": 1.4620000000000002,
+          "Iris versicolor": 4.26,
+          "Iris virginica": 5.5520000000000005
+        },
+        "between_class_range": 4.09
+      },
+      {
+        "feature": "Petal width",
+        "column": "petal width (cm)",
+        "key": "petal_width_cm",
+        "description": "Width of the petal at its widest point, measured in centimeters.",
+        "min": 0.1,
+        "max": 2.5,
+        "mean": 1.1993333333333336,
+        "std": 0.7622376689603465,
+        "class_means": {
+          "Iris setosa": 0.24599999999999997,
+          "Iris versicolor": 1.3259999999999998,
+          "Iris virginica": 2.0260000000000002
+        },
+        "between_class_range": 1.7800000000000002
+      },
+      {
+        "feature": "Sepal length",
+        "column": "sepal length (cm)",
+        "key": "sepal_length_cm",
+        "description": "Length of the sepal, the outer leaf-like part of the flower, measured in centimeters.",
+        "min": 4.3,
+        "max": 7.9,
+        "mean": 5.843333333333334,
+        "std": 0.828066127977863,
+        "class_means": {
+          "Iris setosa": 5.006,
+          "Iris versicolor": 5.936,
+          "Iris virginica": 6.587999999999998
+        },
+        "between_class_range": 1.581999999999998
+      },
+      {
+        "feature": "Sepal width",
+        "column": "sepal width (cm)",
+        "key": "sepal_width_cm",
+        "description": "Width of the sepal at its widest point, measured in centimeters.",
+        "min": 2.0,
+        "max": 4.4,
+        "mean": 3.0573333333333337,
+        "std": 0.4358662849366982,
+        "class_means": {
+          "Iris setosa": 3.428,
+          "Iris versicolor": 2.7700000000000005,
+          "Iris virginica": 2.974
+        },
+        "between_class_range": 0.6579999999999995
+      }
+    ],
+    "records": [
+      {
+        "sepal_length_cm": 5.1,
+        "sepal_width_cm": 3.5,
+        "petal_length_cm": 1.4,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 4.9,
+        "sepal_width_cm": 3.0,
+        "petal_length_cm": 1.4,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 4.7,
+        "sepal_width_cm": 3.2,
+        "petal_length_cm": 1.3,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 4.6,
+        "sepal_width_cm": 3.1,
+        "petal_length_cm": 1.5,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.0,
+        "sepal_width_cm": 3.6,
+        "petal_length_cm": 1.4,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.4,
+        "sepal_width_cm": 3.9,
+        "petal_length_cm": 1.7,
+        "petal_width_cm": 0.4,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 4.6,
+        "sepal_width_cm": 3.4,
+        "petal_length_cm": 1.4,
+        "petal_width_cm": 0.3,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.0,
+        "sepal_width_cm": 3.4,
+        "petal_length_cm": 1.5,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 4.4,
+        "sepal_width_cm": 2.9,
+        "petal_length_cm": 1.4,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 4.9,
+        "sepal_width_cm": 3.1,
+        "petal_length_cm": 1.5,
+        "petal_width_cm": 0.1,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.4,
+        "sepal_width_cm": 3.7,
+        "petal_length_cm": 1.5,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 4.8,
+        "sepal_width_cm": 3.4,
+        "petal_length_cm": 1.6,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 4.8,
+        "sepal_width_cm": 3.0,
+        "petal_length_cm": 1.4,
+        "petal_width_cm": 0.1,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 4.3,
+        "sepal_width_cm": 3.0,
+        "petal_length_cm": 1.1,
+        "petal_width_cm": 0.1,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.8,
+        "sepal_width_cm": 4.0,
+        "petal_length_cm": 1.2,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.7,
+        "sepal_width_cm": 4.4,
+        "petal_length_cm": 1.5,
+        "petal_width_cm": 0.4,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.4,
+        "sepal_width_cm": 3.9,
+        "petal_length_cm": 1.3,
+        "petal_width_cm": 0.4,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.1,
+        "sepal_width_cm": 3.5,
+        "petal_length_cm": 1.4,
+        "petal_width_cm": 0.3,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.7,
+        "sepal_width_cm": 3.8,
+        "petal_length_cm": 1.7,
+        "petal_width_cm": 0.3,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.1,
+        "sepal_width_cm": 3.8,
+        "petal_length_cm": 1.5,
+        "petal_width_cm": 0.3,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.4,
+        "sepal_width_cm": 3.4,
+        "petal_length_cm": 1.7,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.1,
+        "sepal_width_cm": 3.7,
+        "petal_length_cm": 1.5,
+        "petal_width_cm": 0.4,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 4.6,
+        "sepal_width_cm": 3.6,
+        "petal_length_cm": 1.0,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.1,
+        "sepal_width_cm": 3.3,
+        "petal_length_cm": 1.7,
+        "petal_width_cm": 0.5,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 4.8,
+        "sepal_width_cm": 3.4,
+        "petal_length_cm": 1.9,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.0,
+        "sepal_width_cm": 3.0,
+        "petal_length_cm": 1.6,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.0,
+        "sepal_width_cm": 3.4,
+        "petal_length_cm": 1.6,
+        "petal_width_cm": 0.4,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.2,
+        "sepal_width_cm": 3.5,
+        "petal_length_cm": 1.5,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.2,
+        "sepal_width_cm": 3.4,
+        "petal_length_cm": 1.4,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 4.7,
+        "sepal_width_cm": 3.2,
+        "petal_length_cm": 1.6,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 4.8,
+        "sepal_width_cm": 3.1,
+        "petal_length_cm": 1.6,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.4,
+        "sepal_width_cm": 3.4,
+        "petal_length_cm": 1.5,
+        "petal_width_cm": 0.4,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.2,
+        "sepal_width_cm": 4.1,
+        "petal_length_cm": 1.5,
+        "petal_width_cm": 0.1,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.5,
+        "sepal_width_cm": 4.2,
+        "petal_length_cm": 1.4,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 4.9,
+        "sepal_width_cm": 3.1,
+        "petal_length_cm": 1.5,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.0,
+        "sepal_width_cm": 3.2,
+        "petal_length_cm": 1.2,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.5,
+        "sepal_width_cm": 3.5,
+        "petal_length_cm": 1.3,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 4.9,
+        "sepal_width_cm": 3.6,
+        "petal_length_cm": 1.4,
+        "petal_width_cm": 0.1,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 4.4,
+        "sepal_width_cm": 3.0,
+        "petal_length_cm": 1.3,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.1,
+        "sepal_width_cm": 3.4,
+        "petal_length_cm": 1.5,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.0,
+        "sepal_width_cm": 3.5,
+        "petal_length_cm": 1.3,
+        "petal_width_cm": 0.3,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 4.5,
+        "sepal_width_cm": 2.3,
+        "petal_length_cm": 1.3,
+        "petal_width_cm": 0.3,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 4.4,
+        "sepal_width_cm": 3.2,
+        "petal_length_cm": 1.3,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.0,
+        "sepal_width_cm": 3.5,
+        "petal_length_cm": 1.6,
+        "petal_width_cm": 0.6,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.1,
+        "sepal_width_cm": 3.8,
+        "petal_length_cm": 1.9,
+        "petal_width_cm": 0.4,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 4.8,
+        "sepal_width_cm": 3.0,
+        "petal_length_cm": 1.4,
+        "petal_width_cm": 0.3,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.1,
+        "sepal_width_cm": 3.8,
+        "petal_length_cm": 1.6,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 4.6,
+        "sepal_width_cm": 3.2,
+        "petal_length_cm": 1.4,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.3,
+        "sepal_width_cm": 3.7,
+        "petal_length_cm": 1.5,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 5.0,
+        "sepal_width_cm": 3.3,
+        "petal_length_cm": 1.4,
+        "petal_width_cm": 0.2,
+        "species": "Iris setosa"
+      },
+      {
+        "sepal_length_cm": 7.0,
+        "sepal_width_cm": 3.2,
+        "petal_length_cm": 4.7,
+        "petal_width_cm": 1.4,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 6.4,
+        "sepal_width_cm": 3.2,
+        "petal_length_cm": 4.5,
+        "petal_width_cm": 1.5,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 6.9,
+        "sepal_width_cm": 3.1,
+        "petal_length_cm": 4.9,
+        "petal_width_cm": 1.5,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 5.5,
+        "sepal_width_cm": 2.3,
+        "petal_length_cm": 4.0,
+        "petal_width_cm": 1.3,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 6.5,
+        "sepal_width_cm": 2.8,
+        "petal_length_cm": 4.6,
+        "petal_width_cm": 1.5,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 5.7,
+        "sepal_width_cm": 2.8,
+        "petal_length_cm": 4.5,
+        "petal_width_cm": 1.3,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 6.3,
+        "sepal_width_cm": 3.3,
+        "petal_length_cm": 4.7,
+        "petal_width_cm": 1.6,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 4.9,
+        "sepal_width_cm": 2.4,
+        "petal_length_cm": 3.3,
+        "petal_width_cm": 1.0,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 6.6,
+        "sepal_width_cm": 2.9,
+        "petal_length_cm": 4.6,
+        "petal_width_cm": 1.3,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 5.2,
+        "sepal_width_cm": 2.7,
+        "petal_length_cm": 3.9,
+        "petal_width_cm": 1.4,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 5.0,
+        "sepal_width_cm": 2.0,
+        "petal_length_cm": 3.5,
+        "petal_width_cm": 1.0,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 5.9,
+        "sepal_width_cm": 3.0,
+        "petal_length_cm": 4.2,
+        "petal_width_cm": 1.5,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 6.0,
+        "sepal_width_cm": 2.2,
+        "petal_length_cm": 4.0,
+        "petal_width_cm": 1.0,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 6.1,
+        "sepal_width_cm": 2.9,
+        "petal_length_cm": 4.7,
+        "petal_width_cm": 1.4,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 5.6,
+        "sepal_width_cm": 2.9,
+        "petal_length_cm": 3.6,
+        "petal_width_cm": 1.3,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 6.7,
+        "sepal_width_cm": 3.1,
+        "petal_length_cm": 4.4,
+        "petal_width_cm": 1.4,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 5.6,
+        "sepal_width_cm": 3.0,
+        "petal_length_cm": 4.5,
+        "petal_width_cm": 1.5,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 5.8,
+        "sepal_width_cm": 2.7,
+        "petal_length_cm": 4.1,
+        "petal_width_cm": 1.0,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 6.2,
+        "sepal_width_cm": 2.2,
+        "petal_length_cm": 4.5,
+        "petal_width_cm": 1.5,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 5.6,
+        "sepal_width_cm": 2.5,
+        "petal_length_cm": 3.9,
+        "petal_width_cm": 1.1,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 5.9,
+        "sepal_width_cm": 3.2,
+        "petal_length_cm": 4.8,
+        "petal_width_cm": 1.8,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 6.1,
+        "sepal_width_cm": 2.8,
+        "petal_length_cm": 4.0,
+        "petal_width_cm": 1.3,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 6.3,
+        "sepal_width_cm": 2.5,
+        "petal_length_cm": 4.9,
+        "petal_width_cm": 1.5,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 6.1,
+        "sepal_width_cm": 2.8,
+        "petal_length_cm": 4.7,
+        "petal_width_cm": 1.2,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 6.4,
+        "sepal_width_cm": 2.9,
+        "petal_length_cm": 4.3,
+        "petal_width_cm": 1.3,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 6.6,
+        "sepal_width_cm": 3.0,
+        "petal_length_cm": 4.4,
+        "petal_width_cm": 1.4,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 6.8,
+        "sepal_width_cm": 2.8,
+        "petal_length_cm": 4.8,
+        "petal_width_cm": 1.4,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 6.7,
+        "sepal_width_cm": 3.0,
+        "petal_length_cm": 5.0,
+        "petal_width_cm": 1.7,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 6.0,
+        "sepal_width_cm": 2.9,
+        "petal_length_cm": 4.5,
+        "petal_width_cm": 1.5,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 5.7,
+        "sepal_width_cm": 2.6,
+        "petal_length_cm": 3.5,
+        "petal_width_cm": 1.0,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 5.5,
+        "sepal_width_cm": 2.4,
+        "petal_length_cm": 3.8,
+        "petal_width_cm": 1.1,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 5.5,
+        "sepal_width_cm": 2.4,
+        "petal_length_cm": 3.7,
+        "petal_width_cm": 1.0,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 5.8,
+        "sepal_width_cm": 2.7,
+        "petal_length_cm": 3.9,
+        "petal_width_cm": 1.2,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 6.0,
+        "sepal_width_cm": 2.7,
+        "petal_length_cm": 5.1,
+        "petal_width_cm": 1.6,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 5.4,
+        "sepal_width_cm": 3.0,
+        "petal_length_cm": 4.5,
+        "petal_width_cm": 1.5,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 6.0,
+        "sepal_width_cm": 3.4,
+        "petal_length_cm": 4.5,
+        "petal_width_cm": 1.6,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 6.7,
+        "sepal_width_cm": 3.1,
+        "petal_length_cm": 4.7,
+        "petal_width_cm": 1.5,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 6.3,
+        "sepal_width_cm": 2.3,
+        "petal_length_cm": 4.4,
+        "petal_width_cm": 1.3,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 5.6,
+        "sepal_width_cm": 3.0,
+        "petal_length_cm": 4.1,
+        "petal_width_cm": 1.3,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 5.5,
+        "sepal_width_cm": 2.5,
+        "petal_length_cm": 4.0,
+        "petal_width_cm": 1.3,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 5.5,
+        "sepal_width_cm": 2.6,
+        "petal_length_cm": 4.4,
+        "petal_width_cm": 1.2,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 6.1,
+        "sepal_width_cm": 3.0,
+        "petal_length_cm": 4.6,
+        "petal_width_cm": 1.4,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 5.8,
+        "sepal_width_cm": 2.6,
+        "petal_length_cm": 4.0,
+        "petal_width_cm": 1.2,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 5.0,
+        "sepal_width_cm": 2.3,
+        "petal_length_cm": 3.3,
+        "petal_width_cm": 1.0,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 5.6,
+        "sepal_width_cm": 2.7,
+        "petal_length_cm": 4.2,
+        "petal_width_cm": 1.3,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 5.7,
+        "sepal_width_cm": 3.0,
+        "petal_length_cm": 4.2,
+        "petal_width_cm": 1.2,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 5.7,
+        "sepal_width_cm": 2.9,
+        "petal_length_cm": 4.2,
+        "petal_width_cm": 1.3,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 6.2,
+        "sepal_width_cm": 2.9,
+        "petal_length_cm": 4.3,
+        "petal_width_cm": 1.3,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 5.1,
+        "sepal_width_cm": 2.5,
+        "petal_length_cm": 3.0,
+        "petal_width_cm": 1.1,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 5.7,
+        "sepal_width_cm": 2.8,
+        "petal_length_cm": 4.1,
+        "petal_width_cm": 1.3,
+        "species": "Iris versicolor"
+      },
+      {
+        "sepal_length_cm": 6.3,
+        "sepal_width_cm": 3.3,
+        "petal_length_cm": 6.0,
+        "petal_width_cm": 2.5,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 5.8,
+        "sepal_width_cm": 2.7,
+        "petal_length_cm": 5.1,
+        "petal_width_cm": 1.9,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 7.1,
+        "sepal_width_cm": 3.0,
+        "petal_length_cm": 5.9,
+        "petal_width_cm": 2.1,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.3,
+        "sepal_width_cm": 2.9,
+        "petal_length_cm": 5.6,
+        "petal_width_cm": 1.8,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.5,
+        "sepal_width_cm": 3.0,
+        "petal_length_cm": 5.8,
+        "petal_width_cm": 2.2,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 7.6,
+        "sepal_width_cm": 3.0,
+        "petal_length_cm": 6.6,
+        "petal_width_cm": 2.1,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 4.9,
+        "sepal_width_cm": 2.5,
+        "petal_length_cm": 4.5,
+        "petal_width_cm": 1.7,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 7.3,
+        "sepal_width_cm": 2.9,
+        "petal_length_cm": 6.3,
+        "petal_width_cm": 1.8,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.7,
+        "sepal_width_cm": 2.5,
+        "petal_length_cm": 5.8,
+        "petal_width_cm": 1.8,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 7.2,
+        "sepal_width_cm": 3.6,
+        "petal_length_cm": 6.1,
+        "petal_width_cm": 2.5,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.5,
+        "sepal_width_cm": 3.2,
+        "petal_length_cm": 5.1,
+        "petal_width_cm": 2.0,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.4,
+        "sepal_width_cm": 2.7,
+        "petal_length_cm": 5.3,
+        "petal_width_cm": 1.9,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.8,
+        "sepal_width_cm": 3.0,
+        "petal_length_cm": 5.5,
+        "petal_width_cm": 2.1,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 5.7,
+        "sepal_width_cm": 2.5,
+        "petal_length_cm": 5.0,
+        "petal_width_cm": 2.0,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 5.8,
+        "sepal_width_cm": 2.8,
+        "petal_length_cm": 5.1,
+        "petal_width_cm": 2.4,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.4,
+        "sepal_width_cm": 3.2,
+        "petal_length_cm": 5.3,
+        "petal_width_cm": 2.3,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.5,
+        "sepal_width_cm": 3.0,
+        "petal_length_cm": 5.5,
+        "petal_width_cm": 1.8,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 7.7,
+        "sepal_width_cm": 3.8,
+        "petal_length_cm": 6.7,
+        "petal_width_cm": 2.2,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 7.7,
+        "sepal_width_cm": 2.6,
+        "petal_length_cm": 6.9,
+        "petal_width_cm": 2.3,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.0,
+        "sepal_width_cm": 2.2,
+        "petal_length_cm": 5.0,
+        "petal_width_cm": 1.5,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.9,
+        "sepal_width_cm": 3.2,
+        "petal_length_cm": 5.7,
+        "petal_width_cm": 2.3,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 5.6,
+        "sepal_width_cm": 2.8,
+        "petal_length_cm": 4.9,
+        "petal_width_cm": 2.0,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 7.7,
+        "sepal_width_cm": 2.8,
+        "petal_length_cm": 6.7,
+        "petal_width_cm": 2.0,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.3,
+        "sepal_width_cm": 2.7,
+        "petal_length_cm": 4.9,
+        "petal_width_cm": 1.8,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.7,
+        "sepal_width_cm": 3.3,
+        "petal_length_cm": 5.7,
+        "petal_width_cm": 2.1,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 7.2,
+        "sepal_width_cm": 3.2,
+        "petal_length_cm": 6.0,
+        "petal_width_cm": 1.8,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.2,
+        "sepal_width_cm": 2.8,
+        "petal_length_cm": 4.8,
+        "petal_width_cm": 1.8,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.1,
+        "sepal_width_cm": 3.0,
+        "petal_length_cm": 4.9,
+        "petal_width_cm": 1.8,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.4,
+        "sepal_width_cm": 2.8,
+        "petal_length_cm": 5.6,
+        "petal_width_cm": 2.1,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 7.2,
+        "sepal_width_cm": 3.0,
+        "petal_length_cm": 5.8,
+        "petal_width_cm": 1.6,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 7.4,
+        "sepal_width_cm": 2.8,
+        "petal_length_cm": 6.1,
+        "petal_width_cm": 1.9,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 7.9,
+        "sepal_width_cm": 3.8,
+        "petal_length_cm": 6.4,
+        "petal_width_cm": 2.0,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.4,
+        "sepal_width_cm": 2.8,
+        "petal_length_cm": 5.6,
+        "petal_width_cm": 2.2,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.3,
+        "sepal_width_cm": 2.8,
+        "petal_length_cm": 5.1,
+        "petal_width_cm": 1.5,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.1,
+        "sepal_width_cm": 2.6,
+        "petal_length_cm": 5.6,
+        "petal_width_cm": 1.4,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 7.7,
+        "sepal_width_cm": 3.0,
+        "petal_length_cm": 6.1,
+        "petal_width_cm": 2.3,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.3,
+        "sepal_width_cm": 3.4,
+        "petal_length_cm": 5.6,
+        "petal_width_cm": 2.4,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.4,
+        "sepal_width_cm": 3.1,
+        "petal_length_cm": 5.5,
+        "petal_width_cm": 1.8,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.0,
+        "sepal_width_cm": 3.0,
+        "petal_length_cm": 4.8,
+        "petal_width_cm": 1.8,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.9,
+        "sepal_width_cm": 3.1,
+        "petal_length_cm": 5.4,
+        "petal_width_cm": 2.1,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.7,
+        "sepal_width_cm": 3.1,
+        "petal_length_cm": 5.6,
+        "petal_width_cm": 2.4,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.9,
+        "sepal_width_cm": 3.1,
+        "petal_length_cm": 5.1,
+        "petal_width_cm": 2.3,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 5.8,
+        "sepal_width_cm": 2.7,
+        "petal_length_cm": 5.1,
+        "petal_width_cm": 1.9,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.8,
+        "sepal_width_cm": 3.2,
+        "petal_length_cm": 5.9,
+        "petal_width_cm": 2.3,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.7,
+        "sepal_width_cm": 3.3,
+        "petal_length_cm": 5.7,
+        "petal_width_cm": 2.5,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.7,
+        "sepal_width_cm": 3.0,
+        "petal_length_cm": 5.2,
+        "petal_width_cm": 2.3,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.3,
+        "sepal_width_cm": 2.5,
+        "petal_length_cm": 5.0,
+        "petal_width_cm": 1.9,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.5,
+        "sepal_width_cm": 3.0,
+        "petal_length_cm": 5.2,
+        "petal_width_cm": 2.0,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 6.2,
+        "sepal_width_cm": 3.4,
+        "petal_length_cm": 5.4,
+        "petal_width_cm": 2.3,
+        "species": "Iris virginica"
+      },
+      {
+        "sepal_length_cm": 5.9,
+        "sepal_width_cm": 3.0,
+        "petal_length_cm": 5.1,
+        "petal_width_cm": 1.8,
+        "species": "Iris virginica"
+      }
+    ]
+  },
+  "split": {
+    "seed": 42,
+    "test_size": 0.2,
+    "stratified": true,
+    "train_count": 120,
+    "test_count": 30,
+    "train_class_counts": {
+      "Iris setosa": 40,
+      "Iris versicolor": 40,
+      "Iris virginica": 40
+    },
+    "test_class_counts": {
+      "Iris setosa": 10,
+      "Iris versicolor": 10,
+      "Iris virginica": 10
+    },
+    "training_class_centroids": [
+      {
+        "species": "Iris setosa",
+        "count": 40,
+        "means": {
+          "sepal length (cm)": 4.985,
+          "sepal width (cm)": 3.415,
+          "petal length (cm)": 1.4775000000000003,
+          "petal width (cm)": 0.255
+        }
+      },
+      {
+        "species": "Iris versicolor",
+        "count": 40,
+        "means": {
+          "sepal length (cm)": 5.93,
+          "sepal width (cm)": 2.75,
+          "petal length (cm)": 4.2525,
+          "petal width (cm)": 1.3199999999999998
+        }
+      },
+      {
+        "species": "Iris virginica",
+        "count": 40,
+        "means": {
+          "sepal length (cm)": 6.609999999999999,
+          "sepal width (cm)": 2.98,
+          "petal length (cm)": 5.58,
+          "petal width (cm)": 2.04
+        }
+      }
+    ]
+  },
+  "preprocessing": {
+    "notes": [
+      "The four measurements are already in centimeters, so no unit conversion is applied.",
+      "The canonical Iris table has no missing values. Training stops if missing values appear instead of imputing them.",
+      "Duplicate rows are counted and retained. They are part of the published dataset, and dropping them would change the classic 150-row benchmark.",
+      "The species target from scikit-learn is an integer code. Display names are Iris setosa, Iris versicolor, and Iris virginica.",
+      "train_test_split uses test_size=0.2, stratify=y, and random_state=42. That yields 120 training flowers and 30 test flowers, with 40 and 10 of each species.",
+      "StandardScaler sits inside a Pipeline for logistic regression, k-nearest neighbors, and the support vector machine. During cross-validation, scikit-learn fits that scaler on each training fold only.",
+      "The decision tree, random forest, and Gaussian naive Bayes are trained on the raw centimeter values.",
+      "The held-out test set is not used to fit preprocessing or to choose the model.",
+      "Exploratory charts describe the full published table. Model fitting uses only the training split."
+    ],
+    "scaled_models": [
+      "Logistic Regression",
+      "K-Nearest Neighbors",
+      "Support Vector Machine"
+    ],
+    "unscaled_models": [
+      "Decision Tree",
+      "Random Forest",
+      "Gaussian Naive Bayes"
+    ]
+  },
+  "pipeline_stages": [
+    {
+      "id": "load",
+      "title": "Dataset loading",
+      "what": "The pipeline loads the Iris dataset with sklearn.datasets.load_iris and converts it into a pandas DataFrame. Numeric species codes are labeled setosa, versicolor, and virginica.",
+      "why": "Supervised classification needs a table of measurements and a known species for each flower.",
+      "library": "scikit-learn load_iris and pandas"
+    },
+    {
+      "id": "eda",
+      "title": "Exploratory data analysis",
+      "what": "The app counts rows and columns, checks missing values and duplicate rows, and calculates descriptive statistics, class balance, correlations, and feature distributions.",
+      "why": "These checks show whether the table is complete and how the measurements differ across species before any model is trained.",
+      "library": "pandas, NumPy, Matplotlib, and Seaborn"
+    },
+    {
+      "id": "split",
+      "title": "Train-test splitting",
+      "what": "The 150 flowers are divided with a stratified 80/20 split and random seed 42. Each species keeps the same proportion in the training and test sets.",
+      "why": "The test set is a final check on flowers that were not used to compare models. Stratifying keeps every species represented, and the fixed seed makes the split reproducible.",
+      "library": "scikit-learn train_test_split"
+    },
+    {
+      "id": "preprocess",
+      "title": "Feature preprocessing",
+      "what": "Logistic regression, k-nearest neighbors, and the support vector machine receive a StandardScaler inside a scikit-learn Pipeline. The decision tree, random forest, and Gaussian naive Bayes use the original centimeter values. No imputer is added because the canonical table has no missing entries.",
+      "why": "Distance-based and linear models are sensitive to measurement scale. Fitting the scaler inside the pipeline, and only on training rows, keeps test-set information out of preprocessing.",
+      "library": "scikit-learn Pipeline and StandardScaler"
+    },
+    {
+      "id": "train",
+      "title": "Model training",
+      "what": "Six classifiers are trained on the training split: logistic regression, k-nearest neighbors, a decision tree, a random forest, a support vector machine, and Gaussian naive Bayes. Hyperparameters are fixed and modest. They are not exhaustively tuned.",
+      "why": "The dataset is small. Comparing several simple models is more informative than assuming one algorithm is best.",
+      "library": "scikit-learn estimators"
+    },
+    {
+      "id": "select",
+      "title": "Cross-validation and model selection",
+      "what": "Each model is scored with 5-fold stratified cross-validation on the training set. The selected model has the highest mean macro-F1. Mean accuracy is the tie-breaker. If those scores also match, the earlier model in the fixed catalog is kept.",
+      "why": "Cross-validation reuses the training flowers without looking at the test labels. Macro-F1 gives each species an equal vote.",
+      "library": "scikit-learn StratifiedKFold and cross_validate"
+    },
+    {
+      "id": "evaluate",
+      "title": "Final evaluation",
+      "what": "The selected model is fit on the full training split and then scored once on the held-out test set. Accuracy, precision, recall, macro-F1, a confusion matrix, and a classification report are saved.",
+      "why": "This is the first time the test labels are used. It estimates how the chosen model handles unseen rows from this same table.",
+      "library": "scikit-learn classification metrics"
+    },
+    {
+      "id": "predict",
+      "title": "Prediction and probability estimation",
+      "what": "The saved pipeline loads once when the API starts. A request supplies four measurements. The model returns a species and a probability for each species.",
+      "why": "Loading the saved model once keeps predictions consistent with the evaluation run and avoids retraining on every request.",
+      "library": "Joblib, FastAPI, and the selected scikit-learn estimator"
+    }
+  ],
+  "evaluation": {
+    "selected_model_key": "svm",
+    "selected_model_name": "Support Vector Machine",
+    "selected_model_uses_scaling": true,
+    "selected_model_hyperparameters": "StandardScaler + CalibratedClassifierCV(SVC(kernel='rbf'), method='sigmoid', ensemble=False). Calibration uses a stratified inner split so the model can return probabilities.",
+    "selection_rule": "Highest mean stratified cross-validated macro-F1 on the training set. Mean cross-validated accuracy breaks a tie. If both match, the earlier model in the fixed catalog is kept. The held-out test set is not used for selection.",
+    "comparison": [
+      {
+        "key": "logistic_regression",
+        "name": "Logistic Regression",
+        "uses_scaling": true,
+        "hyperparameters": "StandardScaler + LogisticRegression(max_iter=2000, random_state=42)",
+        "catalog_index": 0,
+        "fit_seconds": 0.2927982000110205,
+        "selected": false,
+        "cv_macro_f1_mean": 0.9579707438530969,
+        "cv_macro_f1_std": 0.029931688525384564,
+        "cv_macro_f1_folds": [
+          0.9581699346405229,
+          1.0,
+          0.9581699346405229,
+          0.9581699346405229,
+          0.9153439153439153
+        ],
+        "cv_accuracy_mean": 0.9583333333333334,
+        "cv_accuracy_std": 0.029462782549439494,
+        "cv_accuracy_folds": [
+          0.9583333333333334,
+          1.0,
+          0.9583333333333334,
+          0.9583333333333334,
+          0.9166666666666666
+        ],
+        "cross_validation_seconds": 3.4122443000087515
+      },
+      {
+        "key": "knn",
+        "name": "K-Nearest Neighbors",
+        "uses_scaling": true,
+        "hyperparameters": "StandardScaler + KNeighborsClassifier(n_neighbors=5, weights='uniform')",
+        "catalog_index": 1,
+        "fit_seconds": 0.054100099980132654,
+        "selected": false,
+        "cv_macro_f1_mean": 0.9579707438530969,
+        "cv_macro_f1_std": 0.029931688525384564,
+        "cv_macro_f1_folds": [
+          0.9581699346405229,
+          1.0,
+          0.9581699346405229,
+          0.9153439153439153,
+          0.9581699346405229
+        ],
+        "cv_accuracy_mean": 0.9583333333333334,
+        "cv_accuracy_std": 0.029462782549439494,
+        "cv_accuracy_folds": [
+          0.9583333333333334,
+          1.0,
+          0.9583333333333334,
+          0.9166666666666666,
+          0.9583333333333334
+        ],
+        "cross_validation_seconds": 2.740833300020313
+      },
+      {
+        "key": "decision_tree",
+        "name": "Decision Tree",
+        "uses_scaling": false,
+        "hyperparameters": "DecisionTreeClassifier(random_state=42)",
+        "catalog_index": 2,
+        "fit_seconds": 0.021088399982545525,
+        "selected": false,
+        "cv_macro_f1_mean": 0.9496047307812013,
+        "cv_macro_f1_std": 0.01915237807058645,
+        "cv_macro_f1_folds": [
+          0.9581699346405229,
+          0.9581699346405229,
+          0.9581699346405229,
+          0.9581699346405229,
+          0.9153439153439153
+        ],
+        "cv_accuracy_mean": 0.95,
+        "cv_accuracy_std": 0.018633899812498283,
+        "cv_accuracy_folds": [
+          0.9583333333333334,
+          0.9583333333333334,
+          0.9583333333333334,
+          0.9583333333333334,
+          0.9166666666666666
+        ],
+        "cross_validation_seconds": 1.6340881000214722
+      },
+      {
+        "key": "random_forest",
+        "name": "Random Forest",
+        "uses_scaling": false,
+        "hyperparameters": "RandomForestClassifier(n_estimators=200, random_state=42)",
+        "catalog_index": 3,
+        "fit_seconds": 9.852028399996925,
+        "selected": false,
+        "cv_macro_f1_mean": 0.9494055399937753,
+        "cv_macro_f1_std": 0.03547469928676366,
+        "cv_macro_f1_folds": [
+          0.9581699346405229,
+          1.0,
+          0.9581699346405229,
+          0.9153439153439153,
+          0.9153439153439153
+        ],
+        "cv_accuracy_mean": 0.95,
+        "cv_accuracy_std": 0.03486083443891984,
+        "cv_accuracy_folds": [
+          0.9583333333333334,
+          1.0,
+          0.9583333333333334,
+          0.9166666666666666,
+          0.9166666666666666
+        ],
+        "cross_validation_seconds": 37.31145079998532
+      },
+      {
+        "key": "svm",
+        "name": "Support Vector Machine",
+        "uses_scaling": true,
+        "hyperparameters": "StandardScaler + CalibratedClassifierCV(SVC(kernel='rbf'), method='sigmoid', ensemble=False). Calibration uses a stratified inner split so the model can return probabilities.",
+        "catalog_index": 4,
+        "fit_seconds": 0.7927752999821678,
+        "selected": true,
+        "cv_macro_f1_mean": 0.9665359477124185,
+        "cv_macro_f1_std": 0.018706973929409988,
+        "cv_macro_f1_folds": [
+          0.9581699346405229,
+          1.0,
+          0.9581699346405229,
+          0.9581699346405229,
+          0.9581699346405229
+        ],
+        "cv_accuracy_mean": 0.9666666666666668,
+        "cv_accuracy_std": 0.01863389981249823,
+        "cv_accuracy_folds": [
+          0.9583333333333334,
+          1.0,
+          0.9583333333333334,
+          0.9583333333333334,
+          0.9583333333333334
+        ],
+        "cross_validation_seconds": 5.778804000001401
+      },
+      {
+        "key": "gaussian_nb",
+        "name": "Gaussian Naive Bayes",
+        "uses_scaling": false,
+        "hyperparameters": "GaussianNB()",
+        "catalog_index": 5,
+        "fit_seconds": 0.05772929999511689,
+        "selected": false,
+        "cv_macro_f1_mean": 0.9496047307812013,
+        "cv_macro_f1_std": 0.01915237807058645,
+        "cv_macro_f1_folds": [
+          0.9581699346405229,
+          0.9581699346405229,
+          0.9581699346405229,
+          0.9581699346405229,
+          0.9153439153439153
+        ],
+        "cv_accuracy_mean": 0.95,
+        "cv_accuracy_std": 0.018633899812498283,
+        "cv_accuracy_folds": [
+          0.9583333333333334,
+          0.9583333333333334,
+          0.9583333333333334,
+          0.9583333333333334,
+          0.9166666666666666
+        ],
+        "cross_validation_seconds": 0.9952913000015542
+      }
+    ],
+    "test_metrics": {
+      "accuracy": 0.9666666666666667,
+      "precision_macro": 0.9696969696969697,
+      "recall_macro": 0.9666666666666667,
+      "f1_macro": 0.9665831244778612,
+      "confusion_matrix": [
+        [
+          10,
+          0,
+          0
+        ],
+        [
+          0,
+          9,
+          1
+        ],
+        [
+          0,
+          0,
+          10
+        ]
+      ],
+      "classification_report": {
+        "accuracy": 0.9666666666666667,
+        "macro_avg": {
+          "precision": 0.9696969696969697,
+          "recall": 0.9666666666666667,
+          "f1": 0.9665831244778612,
+          "support": 30
+        },
+        "weighted_avg": {
+          "precision": 0.9696969696969696,
+          "recall": 0.9666666666666667,
+          "f1": 0.9665831244778613,
+          "support": 30
+        },
+        "classes": [
+          {
+            "name": "Iris setosa",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          {
+            "name": "Iris versicolor",
+            "precision": 1.0,
+            "recall": 0.9,
+            "f1": 0.9473684210526315,
+            "support": 10
+          },
+          {
+            "name": "Iris virginica",
+            "precision": 0.9090909090909091,
+            "recall": 1.0,
+            "f1": 0.9523809523809523,
+            "support": 10
+          }
+        ]
+      },
+      "inference_seconds": 0.06139630000689067,
+      "inference_per_sample_seconds": 0.0020465433335630223,
+      "samples": 30
+    },
+    "training_metrics": {
+      "accuracy": 0.975,
+      "f1_macro": 0.9749960931395529,
+      "samples": 120,
+      "note": "Training-set scores describe fit on rows the model has already seen. They are not used to select the model."
+    },
+    "generalization_gap": {
+      "accuracy": 0.008333333333333304,
+      "f1_macro": 0.008412968661691722,
+      "note": "A positive gap means the training score is higher than the held-out test score. Some difference is normal. A large gap can indicate overfitting. This gap was not used to choose the model."
+    },
+    "confusion_matrix": [
+      [
+        10,
+        0,
+        0
+      ],
+      [
+        0,
+        9,
+        1
+      ],
+      [
+        0,
+        0,
+        10
+      ]
+    ],
+    "class_names": [
+      "Iris setosa",
+      "Iris versicolor",
+      "Iris virginica"
+    ],
+    "classification_report": {
+      "accuracy": 0.9666666666666667,
+      "macro_avg": {
+        "precision": 0.9696969696969697,
+        "recall": 0.9666666666666667,
+        "f1": 0.9665831244778612,
+        "support": 30
+      },
+      "weighted_avg": {
+        "precision": 0.9696969696969696,
+        "recall": 0.9666666666666667,
+        "f1": 0.9665831244778613,
+        "support": 30
+      },
+      "classes": [
+        {
+          "name": "Iris setosa",
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 10
+        },
+        {
+          "name": "Iris versicolor",
+          "precision": 1.0,
+          "recall": 0.9,
+          "f1": 0.9473684210526315,
+          "support": 10
+        },
+        {
+          "name": "Iris virginica",
+          "precision": 0.9090909090909091,
+          "recall": 1.0,
+          "f1": 0.9523809523809523,
+          "support": 10
+        }
+      ]
+    },
+    "feature_importance": {
+      "method": "permutation_importance",
+      "score_label": "Held-out macro-F1 drop when shuffled",
+      "note": "Permutation importance is the drop in held-out macro-F1 after a measurement is shuffled. It was computed on the test set after model selection, so it explains the chosen model and did not decide the winner. A larger score means the model relied more on that measurement in this evaluation. A near-zero or negative score means shuffling it did not hurt. This is not a causal claim.",
+      "narrative": "For the selected model, the importance ranking is Petal width (49.9% of the absolute score), Petal length (40.2% of the absolute score), Sepal width (9.3% of the absolute score), Sepal length (0.6% of the absolute score). The highest-ranked measurement is Petal width. Petal measurements account for 90.1% of the absolute importance, and sepal measurements account for 9.9%. Compare this ranking with the gaps between species averages in the dataset explorer. Both views describe separation in this sample. Neither one shows that a measurement causes the species.",
+      "features": [
+        {
+          "feature": "Petal width",
+          "column": "petal width (cm)",
+          "importance": 0.28366347314444856,
+          "relative_importance": 0.4987066748204646,
+          "std": 0.07745613576753062
+        },
+        {
+          "feature": "Petal length",
+          "column": "petal length (cm)",
+          "importance": 0.22876175207114938,
+          "relative_importance": 0.4021843610559315,
+          "std": 0.0664106199175361
+        },
+        {
+          "feature": "Sepal width",
+          "column": "sepal width (cm)",
+          "importance": 0.05304802410065559,
+          "relative_importance": 0.09326334269185958,
+          "std": 0.04178226960349145
+        },
+        {
+          "feature": "Sepal length",
+          "column": "sepal length (cm)",
+          "importance": 0.0033249791144527975,
+          "relative_importance": 0.0058456214317444246,
+          "std": 0.00997493734335839
+        }
+      ]
+    },
+    "timings": {
+      "selected_model_fit_seconds": 0.7927752999821678,
+      "selected_model_cross_validation_seconds": 5.778804000001401,
+      "test_inference_seconds": 0.06139630000689067,
+      "test_inference_per_sample_seconds": 0.0020465433335630223
+    }
+  },
+  "figures": [
+    "reports/figures/pairplot.png",
+    "reports/figures/feature_distributions.png",
+    "reports/figures/correlation_heatmap.png",
+    "reports/figures/model_comparison.png",
+    "reports/figures/confusion_matrix.png",
+    "reports/figures/feature_importance.png"
+  ],
+  "limitations": [
+    "The Iris dataset contains 150 samples from a classic educational study. A high score does not establish performance on new flower populations, sensors, or species.",
+    "Identical measurement rows, when present, can fall on both sides of the split and make the test score slightly optimistic.",
+    "Feature importance, class-average gaps, and centroid distances describe patterns in this dataset. They are not causal effects.",
+    "Predicted probabilities rank the three species for the supplied measurements. They are not botanical certainty.",
+    "Hyperparameters were not tuned with a search. A search on this small table could overstate how well the winner generalizes."
+  ]
+}
