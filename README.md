@@ -1,10 +1,10 @@
-# Iris Flower Classification — Botanical Intelligence
+# Botanical Intelligence — Iris Classification Studio
 
-A local machine-learning application that classifies an Iris flower from four measurements and explains how that decision was reached. The dashboard, FastAPI service, and saved scikit-learn model run on your machine. This repository does not include a public deployment.
+A local studio for classifying Iris flowers and inspecting the model that makes the decision. Enter four measurements, see the species and class probabilities, and compare that result with the saved evaluation. The React dashboard, FastAPI service, and scikit-learn model all run on your machine. This repository is not a public deployment.
 
-The task is supervised classification. Each flower is described by sepal length, sepal width, petal length, and petal width. The model assigns one of three species: Iris setosa, Iris versicolor, or Iris virginica.
+Each flower is described by sepal length, sepal width, petal length, and petal width. The model assigns one of three species: Iris setosa, Iris versicolor, or Iris virginica.
 
-[Local setup](#local-setup) · [API](#api) · [Results](#results) · [Architecture](#architecture) · [Project structure](#project-structure)
+[Gallery](#gallery) · [Results](#results) · [Architecture](#architecture) · [API](#api) · [Local setup](#local-setup)
 
 ![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.5%2B-F7931E?logo=scikitlearn&logoColor=white)
@@ -13,33 +13,25 @@ The task is supervised classification. Each flower is described by sepal length,
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?logo=typescript&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-6-646CFF?logo=vite&logoColor=white)
 
-## Screenshots
+## Gallery
 
-Captured from the running dashboard at `http://127.0.0.1:5173`, with the Iris API on port 8002.
+These screenshots were captured from the running Botanical Intelligence dashboard. The Iris API was on port 8002.
 
-<p>
-  <img src="docs/screenshots/overview.png" alt="Overview page showing 150 samples, three species, four features, and held-out accuracy 0.967" width="820">
-</p>
+![Botanical Intelligence Overview](docs/screenshots/overview.png)
 
-Overview. Dataset size, species cards, and the cross-validation comparison for the saved training run.
+*Overview dashboard. 150 samples, three species, four measurements, and the saved held-out accuracy.*
 
-<p>
-  <img src="docs/screenshots/studio.png" alt="Classification Studio predicting Iris setosa at 98.3 percent for the classic short-petal measurements" width="820">
-</p>
+![Interactive classification studio](docs/screenshots/studio.png)
 
-Classification Studio. A live prediction from the saved support vector machine: Iris setosa, highest estimate 98.3%.
+*Classification Studio. A live prediction from the saved support vector machine: Iris setosa, highest estimate 98.3%.*
 
-<p>
-  <img src="docs/screenshots/atlas.png" alt="Species Atlas with measurement ranges, a petal-length distribution, and a petal scatter plot" width="820">
-</p>
+![Iris species atlas](docs/screenshots/atlas.png)
 
-Species Atlas. Observed ranges and charts for all 150 flowers.
+*Species Atlas. Observed ranges, the petal-length distribution, and the petal length–width relationship.*
 
-<p>
-  <img src="docs/screenshots/observatory.png" alt="Model Observatory for the selected support vector machine, with held-out accuracy 0.967" width="820">
-</p>
+![Model observatory and performance comparisons](docs/screenshots/observatory.png)
 
-Model Observatory. Cross-validation selected the model. The held-out scores were computed once afterward.
+*Model Observatory. Cross-validation selected the support vector machine. The held-out scores were computed once afterward.*
 
 ## What it does
 
@@ -166,8 +158,8 @@ A strong score on 150 teaching rows does not establish real-world performance.
 From PowerShell, after cloning:
 
 ```powershell
-git clone <repository-url>
-cd iris-flower-classification
+git clone https://github.com/karthik2104-cr/iris-botanical-intelligence.git
+cd iris-botanical-intelligence
 py -3.11 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
@@ -338,3 +330,11 @@ Training figures:
 - Record the duplicate row indexes so split overlap can be reported directly.
 - Version saved models when the training procedure changes.
 - Serve the API and dashboard on a host only after the evaluation story is still visible to users.
+
+## Acknowledgements
+
+The measurements come from the Iris dataset published by R. A. Fisher and distributed by `sklearn.datasets.load_iris`. Model training, the API, and the Botanical Intelligence dashboard in this repository were built for local study and demonstration.
+
+## License
+
+This repository does not include a license file. The source is available to read, and reuse terms are not granted beyond what GitHub displays for an unlicensed public repository.
